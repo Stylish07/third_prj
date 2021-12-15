@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.wrap {
+	margin-top: 80px;
+	margin-bottom: 50px;
+}
+
+.login {
+	padding: 10px;
+	background-color: #EAEAEA;
+	border: 1px solid #BDBDBD;
+	text-align: center;
+}
+
+.contents {
+	margin: 30px;
+	background: rgb(255,255,255);
+	background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 100%);
+	text-align: center;
+	vertical-align: middle;
+}
+
+.link_login {
+	display:block;
+	background-color: #00D8FF;
+	text-align: center;
+	height: 50px;
+	font-size: 14pt;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	border-radius: 2px;
+    width:240px;
+    line-height:30px;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+
+.sub_area {
+	margin-top: 20px;
+}
+
+.userInfo{
+	background-color: #FFFFFF;
+	padding: 10px;
+}
+
+.tab_subtitle {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.company_tab {
+	background-color: #FFFFFF;
+}
+
+.comp_logo {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.content_title {
+	margin-top: 125px;
+}

@@ -4,5 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!--DBCP 설정-->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@211.63.89.142:1521:orcl"/>
+		<property name="username" value="teamtwo"/>
+		<property name="password" value="handok"/>
+	</bean>
+	
+	<!--JDBC Template에 dataSource를 의존성 주입하여 설정-->
+	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate" scope="singleton">
+		<constructor-arg ref="dataSource"/>		
+	</bean>
 		
 </beans>
