@@ -9,8 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>이력서 관리</title>
 <style type="text/css">
-
 </style>
+<link rel="stylesheet" href="http://localhost/third_prj/resources/css/resume.css">
 <!--jQuery CDN-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!-- Bootstrap CDN -->
@@ -23,9 +23,63 @@
 </script>
 </head>
 <body>
-	이력서입니다.커리어, 서티피케이트, 에듀케이션, 랭귀지를 보여줌.<br>
-	<div class="resume_card">
-		<jsp:include page="/WEB-INF/views/resume/career.jsp"></jsp:include>
+	<!-- header -->
+	<jsp:include page="/WEB-INF/views/headerfooter/header.jsp"/>
+	
+	<div class="container">
+		<div class="resume_wrap">
+			<div class="resume_head">
+				<h2>내 이력서</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="resume_profile">
+						<div class="resume_profile_info">
+							<h1>
+								${ iVO.name }
+							</h1>
+						</div>
+						<div>
+							<img src="#void/${ pVO.img }" width="200px;" class="img-responsive img-circle prof_img"
+								onerror="this.src='http://localhost/third_prj/resources/images/profile/defalt_profile.jpg'">
+						</div>
+						<div class="resume_profile_info">
+							<strong>phone: ${ pVO.phone }</strong>
+							<br>
+							<strong>email: ${ iVO.email }</strong>
+						</div>
+						<div class="resume_profile_info">
+							<strong>homepage: ${ pVO.url }</strong>
+						</div>
+						<div class="resume_profile_info">
+							<strong>${ pVO.description }</strong>
+						</div>
+						<div class="edit_prof">
+							<a href="http://localhost/third_prj/profile/profile.do">내 프로필 수정</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="resume_body">
+						<div class="resume_card">
+							<jsp:include page="/WEB-INF/views/resume/career.jsp"></jsp:include>
+						</div>
+						<div class="resume_card">
+						
+						</div>
+						<div class="resume_card">
+						
+						</div>
+						<div class="resume_card">
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	
+	<!-- footer -->
+	<jsp:include page="/WEB-INF/views/headerfooter/footer.jsp"/>
 </body>
 </html>
