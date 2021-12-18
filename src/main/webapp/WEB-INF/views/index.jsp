@@ -32,16 +32,25 @@
 				<div class="col-md-3">
 					<div class="login">
 						<c:choose>
-							<c:when test="${ empty sessionScope.id }">
-								<a href="http://localhost/third_prj/login/login_page.jsp" class="link_login">로그인</a>
+							<c:when test="${ empty sessionScope.userVO }">
+								<a href="http://localhost/third_prj/accounts/sign_in.do" class="link_login">로그인</a>
 								<div class="sub_area">
-									<a href="http://localhost/third_prj/login/find.jsp" class="link_look">아이디 비밀번호 찾기</a>
+									<a href="#void" class="link_look">아이디 비밀번호 찾기</a>
 									 / 
-									<a href="http://localhost/third_prj/login/sign_up.jsp" class="link_join">회원가입</a>
+									<a href="http://localhost/third_prj/accounts/sign_up.do" class="link_join">회원가입</a>
 								</div>
 							</c:when>
 							<c:otherwise>
-								<!-- 로그인 정보가 세션이 있을 경우 나타나야 하는 정보를 만들기 -->
+								<div class="userInfo">
+									<h3><c:out value="${ userVO.getName() }"/>님</h3>
+									안녕하세요?
+									<br>
+										<div class="sub_area">
+											<a href="http://localhost/third_prj/accounts/sign_out.do">로그아웃</a>
+											/
+											<a href="#void">내 프로필</a>
+										</div>
+								</div>
 							</c:otherwise>
 						</c:choose>
 					</div>
