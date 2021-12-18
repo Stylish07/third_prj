@@ -28,8 +28,8 @@
 					<li><a href="http://localhost/third_prj/portfolio/portfolio.do">포트폴리오</a></li>
 					<li><a href="http://localhost/third_prj/job_post/job_post.do">채용공고</a></li>
 					<li><a href="http://localhost/third_prj/notice/notice.do">공지사항</a></li>
-					<c:if test="${ not empty userName }">
-						<li><a href="http://localhost/third_prj/profile/profile.do">${ userName }'s 프로필</a></li>
+					<c:if test="${ not empty userVO }">
+						<li><a href="http://localhost/third_prj/profile/profile.do">${ userVO.getName() }'s 프로필</a></li>
 					</c:if>
 				</ul>
 			</div>

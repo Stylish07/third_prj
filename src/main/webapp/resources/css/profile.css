@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.header {
+	border-bottom: 2px solid #333;
+	margin-top: 70px;
+}
+
+.profile_body {
+	border: 1px solid #D7E2EB;
+	background-color: white;
+	margin-top: 70px;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-bottom: 100px;
+	border-radius: 20px;
+}
+
+.form_body {
+	margin: 40px;
+}

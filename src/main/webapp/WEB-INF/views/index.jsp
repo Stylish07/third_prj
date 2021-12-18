@@ -37,7 +37,7 @@
 								<div class="sub_area">
 									<a href="#void" class="link_look">아이디 비밀번호 찾기</a>
 									 / 
-									<a href="http://localhost/third_prj/accounts/sign_up.do" class="link_join">회원가입</a>
+									<a href="#void" class="link_join">회원가입</a>
 								</div>
 							</c:when>
 							<c:otherwise>
@@ -48,7 +48,7 @@
 										<div class="sub_area">
 											<a href="http://localhost/third_prj/accounts/sign_out.do">로그아웃</a>
 											/
-											<a href="#void">내 프로필</a>
+											<a href="http://localhost/third_prj/profile/profile.do">내 프로필</a>
 										</div>
 								</div>
 							</c:otherwise>
