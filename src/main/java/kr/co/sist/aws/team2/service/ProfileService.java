@@ -22,4 +22,32 @@ public class ProfileService {
 
 		return profileVO;
 	}
+	
+	public void saveProfile(ProfileVO profileVO) {
+		try {
+			profileDAO.loadProfile(profileVO.getId());
+			
+			// 저장된 프로필이 DB에 있을 때
+			profileDAO.updateProfile(profileVO);
+		} catch (EmptyResultDataAccessException e) {
+			// 저장된 프로필이 DB에 없을때
+			profileDAO.insertProfile(profileVO);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void saveImg(ProfileVO profileVO) {
+		try {
+			profileDAO.loadProfile(profileVO.getId());
+			
+			// 저장된 프로필이 DB에 있을 때
+			profileDAO.updateImg(profileVO);
+		} catch (EmptyResultDataAccessException e) {
+			// 저장된 프로필이 DB에 없을때
+			profileDAO.insertImg(profileVO);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -21,11 +21,34 @@
 <script type="text/javascript">
 $(function() {
 	$("#save").click(function() {
-		
-		
 		$("#profile_form").submit();
 	});
 });
+
+function img_chg() {
+	let img = $("#img").val();
+	
+	let blockExt = ["jpg", "jpeg", "png"];
+	let blockFlag = false;
+	
+	let ext = (img.substring(img.lastIndexOf(".") + 1)).toLowerCase();
+	for(var i = 0; i < blockExt.length; i++) {
+		if(ext == blockExt[i]) {
+			blockFlag = true;
+			
+			break;
+		}
+	}
+	
+	if(!blockFlag) {
+		alert("업로드 가능한 확장자가 아닙니다.");
+		$("#img").val("");
+		
+		return;
+	}
+	
+	$("#img_form").submit();
+}
 </script>
 </head>
 <body>
@@ -39,14 +62,26 @@ $(function() {
 			</div>
 			<div class="profile_body">
 				<div class="form_body">
-					<form action="#void" id="profile_form">
-					
+					<form action="http://localhost/third_prj/profile/saveImg.do" id="img_form" method="post" enctype="multipart/form-data">
 						<div class="form-group img">
 							<label>프로필 이미지</label>
-							<img alt="" src="">
+							<c:choose>
+								<c:when test="${ not empty profileVO.getImg() }">
+									<img src="http://localhost/third_prj/resources/upload/${ profileVO.getImg() }"
+										alt="이미지 업로드 중 입니다." class="img-responsive" width="200px">
+								</c:when>
+								<c:otherwise>
+									<img src="http://localhost/third_prj/resources/images/profile/defalt_profile.jpg"
+										class="img-responsive" width="200px">
+								</c:otherwise>
+							</c:choose>
+							<input type="file" name="img" id="img" accept=".jpg, .jpeg, .png" onchange="img_chg()">
+							<span id="helpBlock" class="help-block">프로필 사진은 .jpg .jpeg .png 파일만 가능하고, 최대 파일 크기는 10MB 입니다.</span>
 						</div>
-						
-					 	<div class="form-group gender">
+					</form>
+				
+					<form action="http://localhost/third_prj/profile/saveProfile.do" id="profile_form" method="post">
+						<div class="form-group gender">
 							<label>성별</label>
 							<div class="radio" >
 								<label>
@@ -74,7 +109,7 @@ $(function() {
 						
 						<div class="form-group tech_stack">
 						 	<label>관심 기술</label>
-						 	<select class="form-control">
+						 	<select class="form-control" name="tech_idx">
 						 		<option>선택해 주세요</option>
 						 		<c:forEach var="tList" items="${ tList }">
 						 			<option value="${tList.idx}" <c:if test ="${profileVO.getTech_idx() eq tList.idx}">selected="selected"</c:if>>
@@ -89,8 +124,9 @@ $(function() {
 							<textarea class="form-control" rows="2" name="description" id="description"><c:out value="${ profileVO.getDescription() }"/></textarea>
 						</div>
 						
-						<button type="button" class="btn btn-success" id="save">저장</button>
+						<%-- <input type="hidden" name="id" value="${ userVO.getId() }"> --%>
 						
+						<button type="button" class="btn btn-success" id="save">저장</button>
 					</form>
 				</div>
 			</div>

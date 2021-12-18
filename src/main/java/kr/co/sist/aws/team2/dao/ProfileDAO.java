@@ -44,5 +44,29 @@ public class ProfileDAO {
 
 		return profileVO;
 	}
+	
+	public void insertProfile(ProfileVO profileVO) {
+		String query = "insert into profile(idx, gender, phone, description, url, input_date, tech_idx, id) values(profile_seq.nextval, ?, ?, ?, ?, sysdate, ?, ?)";
+		
+		jt.update(query, profileVO.getGender(), profileVO.getPhone(), profileVO.getDescription(), profileVO.getUrl(), profileVO.getTech_idx(), profileVO.getId());
+	}
+	
+	public void updateProfile(ProfileVO profileVO) {
+		String query = "update profile set gender = ?, phone = ?, description = ?, url = ?, tech_idx = ? where id = ?";
+		
+		jt.update(query, profileVO.getGender(), profileVO.getPhone(), profileVO.getDescription(), profileVO.getUrl(), profileVO.getTech_idx(), profileVO.getId());
+	}
+	
+	public void insertImg(ProfileVO profileVO) {
+		String query = "insert into profile(idx, img, id) values(profile_seq.nextval, ?, ?)";
+		
+		jt.update(query, profileVO.getImg(), profileVO.getId());
+	}
+	
+	public void updateImg(ProfileVO profileVO) {
+		String query = "update profile set img = ? where id = ?";
+		
+		jt.update(query, profileVO.getImg(), profileVO.getId());
+	}
 
 }
