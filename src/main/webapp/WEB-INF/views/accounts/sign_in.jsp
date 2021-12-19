@@ -55,10 +55,10 @@ $(function() {
 							<h2><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> 로그인</h2>
 							<hr class="colorgraph">
 							<div class="form-group">
-			                    <input type="text" name="id" id="id" class="form-control input-lg" placeholder="아이디">
+			                    <input type="text" name="id" id="id" class="form-control input-lg" placeholder="아이디" value="android123">
 							</div>
 							<div class="form-group">
-			                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="비밀번호">
+			                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="비밀번호" value="javajava">
 							</div>
 							<span class="button-checkbox">
 								<button type="button" class="btn" data-color="info">아이디 저장</button>

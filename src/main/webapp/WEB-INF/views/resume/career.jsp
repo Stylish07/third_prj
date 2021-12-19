@@ -1,3 +1,4 @@
+<%@page import="org.springframework.dao.DataAccessException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -17,7 +18,7 @@
 <div>
 	<div class="collapse" id="career">
 		<div class="well resume_form">
-			<form id="career_frm" action="career_process.jsp" method="post">
+			<form id="career_frm" action="http://localhost/third_prj/resume/resumeSave.do" method="post">
 				<div class="form-group">
 					<label for="company_name">* 회사 이름</label> <input type="text"
 						class="form-control" id="company_name" name="company"
@@ -43,8 +44,7 @@
 					<textarea class="form-control" id="career_description"
 						name="description" rows="7" placeholder="업무 및 성과를 작성해주세요.">${ careerVO.description }</textarea>
 				</div>
-				<input type="hidden" name="id" value="${ id }">
-				<input type="hidden" name="idx" value="${ careerVO.idx }">
+				<input type="hidden" name="category" value="career">
 			</form>
 		
 		</div>
@@ -58,9 +58,8 @@
 					id="reset_career">삭제</button>
 			</div>
 		</div>
-		<form id="remove_career" action="remove_process.jsp" method="post">
+		<form id="remove_career" action="http://localhost/third_prj/resume/resumeReset.do" method="post">
 			<input type="hidden" name="table" value="career">
-			<input type="hidden" name="idx" id="car_idx" value="${ careerVO.idx }">
 		</form>
 	</div>
 </div>

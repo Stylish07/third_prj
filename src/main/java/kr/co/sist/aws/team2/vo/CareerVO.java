@@ -61,4 +61,10 @@ public class CareerVO {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return "CareerVO [idx=" + idx + ", company=" + company + ", task=" + task + ", period=" + period
+				+ ", description=" + description + ", tech=" + tech + ", id=" + id + "]";
+	}
+
 }

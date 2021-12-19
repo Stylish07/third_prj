@@ -66,9 +66,9 @@ function img_chg() {
 						<div class="form-group img">
 							<label>프로필 이미지</label>
 							<c:choose>
-								<c:when test="${ not empty profileVO.getImg() }">
-									<img src="http://localhost/third_prj/resources/upload/${ profileVO.getImg() }"
-										alt="이미지 업로드 중 입니다." class="img-responsive" width="200px">
+								<c:when test="${ not empty profileVO.img }">
+									<img src="http://localhost/third_prj/resources/upload/${ profileVO.img }"
+										alt="이미지 업로드 중 입니다." class="img-responsive" width="200px" onerror="this.src='http://localhost/third_prj/resources/images/profile/loading.gif'">
 								</c:when>
 								<c:otherwise>
 									<img src="http://localhost/third_prj/resources/images/profile/defalt_profile.jpg"
@@ -85,13 +85,13 @@ function img_chg() {
 							<label>성별</label>
 							<div class="radio" >
 								<label>
-									<input type="radio" name="gender" id="genderM" value="M" <c:if test="${ profileVO.getGender() eq 'M' }">checked</c:if>>
+									<input type="radio" name="gender" id="genderM" value="M" <c:if test="${ profileVO.gender eq 'M' }">checked</c:if>>
 									남
 								</label>
 							</div>
 							<div class="radio">
 								<label>
-									<input type="radio" name="gender" id="genderW"  value="W" <c:if test="${ profileVO.getGender() eq 'W' }">checked</c:if>>
+									<input type="radio" name="gender" id="genderW"  value="W" <c:if test="${ profileVO.gender eq 'W' }">checked</c:if>>
 									여
 								</label>
 							</div>
@@ -99,12 +99,12 @@ function img_chg() {
 						
 					 	<div class="form-group phone">
 							<label>휴대폰 번호</label>
-							<input type="text" class="form-control" name="phone" id="phone" placeholder="전화번호를 입력하세요" value="${ profileVO.getPhone() }">
+							<input type="text" class="form-control" name="phone" id="phone" placeholder="전화번호를 입력하세요" value="${ profileVO.phone }">
 						</div>
 						
 					 	<div class="form-group url">
 							<label>홈페이지</label>
-							<input type="text" class="form-control" name="url" id="url" placeholder="http://www.sist.com" value="${ profileVO.getUrl() }">
+							<input type="text" class="form-control" name="url" id="url" placeholder="http://www.sist.com" value="${ profileVO.url }">
 						</div>
 						
 						<div class="form-group tech_stack">
@@ -112,7 +112,7 @@ function img_chg() {
 						 	<select class="form-control" name="tech_idx">
 						 		<option>선택해 주세요</option>
 						 		<c:forEach var="tList" items="${ tList }">
-						 			<option value="${tList.idx}" <c:if test ="${profileVO.getTech_idx() eq tList.idx}">selected="selected"</c:if>>
+						 			<option value="${tList.idx}" <c:if test ="${profileVO.tech_idx eq tList.idx}">selected="selected"</c:if>>
 						 				${tList.subject}
 						 			</option>
 						 		</c:forEach>
@@ -121,7 +121,7 @@ function img_chg() {
 						
 					 	<div class="form-group description">
 							<label>한 줄 소개</label>
-							<textarea class="form-control" rows="2" name="description" id="description"><c:out value="${ profileVO.getDescription() }"/></textarea>
+							<textarea class="form-control" rows="2" name="description" id="description"><c:out value="${ profileVO.description }"/></textarea>
 						</div>
 						
 						<%-- <input type="hidden" name="id" value="${ userVO.getId() }"> --%>
