@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.notice_wrap {
+	height: 600px;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.notice_head {
+	border-bottom: 1px solid;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.notice_body {
+	margin-bottom: 100px;
+	margin-top: 70px;
+	padding-left: 150px;
+	padding-right: 150px;
+}
+
+.title {
+	width: 80px;
+}
+
+.id2 {
+	width: 100px;
+}
+
+.input_date1 {
+	width: 80px;
+}
+
+.input_date2 {
+	width: 200px;
+}
+
+.idx1 {
+	width: 80px;
+}
+.idx2 {
+	width: 100px;
+}
+
+.count1 {
+	width: 80px;
+}
+
+.count2 {
+	width: 100px;
+}
+
+.desc {
+	height: 400px;
+}
+
+.not_tab {
+	margin-bottom: 200px;
+}

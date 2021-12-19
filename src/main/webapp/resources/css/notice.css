@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.notice_wrap {
+	height: 600px;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.notice_head {
+	border-bottom: 1px solid;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.notice_body {
+	margin-bottom: 10px;
+	margin-top: 70px;
+	text-align: center;
+	padding-left: 150px;
+	padding-right: 150px;
+}
+
+.idx {
+	width: 50px;
+}
+
+.title {
+}
+
+.admin {
+	width: 200px;
+}
+
+.input_date {
+	width: 150px;
+}
+
+.count {
+	width: 70px;
+}
+
+.thead {
+	font-weight: bold;
+	font-size: 12pt;
+}
