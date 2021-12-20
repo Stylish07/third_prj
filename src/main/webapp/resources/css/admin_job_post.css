@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.admin_job {
+	margin-left: 250px;
+	margin-right: 250px;
+	margin-top: 100px;
+}
+
+.job_wrap {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.job_head {
+	border-bottom: 1px solid;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.job_body {
+	margin-bottom: 100px;
+	margin-top: 70px;
+	padding-left: 150px;
+	padding-right: 150px;
+	text-align: center;
+}
+
+.filter {
+	background-color: #D4F4FA;
+}
+
+.list {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.list_tr {
+	height: 60px;
+	vertical-align: middle;
+}
+
+.idx {
+	width: 50px;
+}
+
+.company {
+}
+
+.subject {
+	width: 200px;
+}
+
+.career {
+	width: 200px;
+}
+
+.input_date {
+	width: 150px;
+}
+
+.count {
+	width: 70px;
+}

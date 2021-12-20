@@ -7,7 +7,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="OurBlog">
-					<h4>이력서 및 채용공고</h4>
+					<h4><a href="http://localhost/third_prj/admin/admin.do" class="admin_link">이력서 및 채용공고</a></h4>
 					<p>쌍용교육센터 4강의실 2조 프로젝트</p>
 					<div class="post-blog-date">2021 dec</div>
 				</div>
