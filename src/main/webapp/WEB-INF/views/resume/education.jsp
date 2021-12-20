@@ -57,6 +57,7 @@
 						placeholder="기타 학력사항을 작성해주세요." name="description">${ educationVO.description }</textarea>
 				</div>
 				<input type="hidden" name="category" value="education">
+				<input type="hidden" name="id" value="${ userVO.getId() }">
 			</form>
 		</div>
 		<div class="row">
@@ -69,6 +70,7 @@
 		</div>
 		<form id="remove_education" action="http://localhost/third_prj/resume/resumeReset.do" method="post">
 			<input type="hidden" name="table" value="education">
+			<input type="hidden" name="id" value="${ userVO.getId() }">
 		</form>
 	</div>
 </div>

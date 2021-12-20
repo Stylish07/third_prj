@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -33,9 +33,15 @@ public class ProfileController {
 	private TechStackService ts;
 
 	@RequestMapping(value = "profile/profile.do", method = RequestMethod.GET)
-	public String loadProfile(@SessionAttribute("userVO") UserVO userVO, Model model) {
-		ProfileVO profileVO = new ProfileVO();
+	public String loadProfile(Model model, HttpSession session) {
+		UserVO userVO = (UserVO) session.getAttribute("userVO");
+
+		if (userVO == null) {
+			return "redirect:http://localhost/third_prj/accounts/sign_in.do";
+		}
 		String id = userVO.getId();
+
+		ProfileVO profileVO = new ProfileVO();
 
 		try {
 			List<TechStackVO> tList = ts.SearchAllTech();
@@ -49,43 +55,52 @@ public class ProfileController {
 		} catch (EmptyResultDataAccessException e) {
 			System.out.println("저장된 프로필이 없습니다.");
 		}
-		
+
 		return "profile/profile";
 	}
 
 	@RequestMapping(value = "profile/saveProfile.do", method = RequestMethod.POST)
-	public String saveProfile(ProfileVO profileVO, @SessionAttribute("userVO") UserVO userVO) {
+	public String saveProfile(ProfileVO profileVO, HttpSession session) {
+		UserVO userVO = (UserVO) session.getAttribute("userVO");
+
+		if (userVO == null) {
+			return "redirect:http://localhost/third_prj/accounts/sign_in.do";
+		}
 		profileVO.setId(userVO.getId());
-		
+
 		ps.saveProfile(profileVO);
 
 		return "redirect:profile.do";
 	}
-	
+
 	@RequestMapping(value = "profile/saveImg.do", method = RequestMethod.POST)
-	public String saveImg(HttpServletRequest request, @SessionAttribute("userVO") UserVO userVO) {
+	public String saveImg(HttpServletRequest request, HttpSession session) {
+		UserVO userVO = (UserVO) session.getAttribute("userVO");
+
+		if (userVO == null) {
+			return "redirect:http://localhost/third_prj/accounts/sign_in.do";
+		}
 		ProfileVO profileVO = new ProfileVO();
 		profileVO.setId(userVO.getId());
-		
+
 		File saveDir = new File("E:/dev/workspace_spring/third_prj/src/main/webapp/resources/upload");
 		int maxSize = 1024 * 1024 * 10;
-		
+
 		MultipartRequest mr = null;
-		
+
 		try {
 			mr = new MultipartRequest(request, saveDir.getAbsolutePath(), maxSize, "UTF-8",
 					new DefaultFileRenamePolicy());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		String imgName = mr.getFilesystemName("img");
 		profileVO.setImg(imgName);
-		
+
 		ps.saveImg(profileVO);
 
 		return "redirect:profile.do";
 	}
-	
 
 }

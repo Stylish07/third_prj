@@ -45,6 +45,7 @@
 						name="description" rows="7" placeholder="업무 및 성과를 작성해주세요.">${ careerVO.description }</textarea>
 				</div>
 				<input type="hidden" name="category" value="career">
+				<input type="hidden" name="id" value="${ userVO.getId() }">
 			</form>
 		
 		</div>
@@ -60,6 +61,7 @@
 		</div>
 		<form id="remove_career" action="http://localhost/third_prj/resume/resumeReset.do" method="post">
 			<input type="hidden" name="table" value="career">
+			<input type="hidden" name="id" value="${ userVO.getId() }">
 		</form>
 	</div>
 </div>

@@ -1,11 +1,12 @@
 package kr.co.sist.aws.team2.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.co.sist.aws.team2.service.ResumeService;
 import kr.co.sist.aws.team2.service.ProfileService;
@@ -25,7 +26,12 @@ public class ResumeController {
 	private ResumeService rs;
 
 	@RequestMapping(value = "resume/resume.do", method = RequestMethod.GET)
-	public String resume(@SessionAttribute("userVO") UserVO userVO, Model model) {
+	public String resume(Model model, HttpSession session) {
+		UserVO userVO = (UserVO) session.getAttribute("userVO");
+
+		if (userVO == null) {
+			return "redirect:http://localhost/third_prj/accounts/sign_in.do";
+		}
 		String id = userVO.getId();
 
 		try {
@@ -35,7 +41,7 @@ public class ResumeController {
 			model.addAttribute("profileVO", profileVO);
 		} catch (Exception e) {
 		}
-		
+
 		try {
 			// 경력 불러오기
 			CareerVO careerVO = new CareerVO();
@@ -43,7 +49,7 @@ public class ResumeController {
 			model.addAttribute("careerVO", careerVO);
 		} catch (Exception e) {
 		}
-		
+
 		try {
 			// 학력 불러오기
 			EducationVO educationVO = new EducationVO();
@@ -51,7 +57,7 @@ public class ResumeController {
 			model.addAttribute("educationVO", educationVO);
 		} catch (Exception e) {
 		}
-		
+
 		try {
 			// 자격 불러오기
 			CertificateVO certificateVO = new CertificateVO();
@@ -59,7 +65,7 @@ public class ResumeController {
 			model.addAttribute("certificateVO", certificateVO);
 		} catch (Exception e) {
 		}
-		
+
 		try {
 			// 외국어 불러오기
 			LanguageVO languageVO = new LanguageVO();
@@ -72,8 +78,13 @@ public class ResumeController {
 	}
 
 	@RequestMapping(value = "resume/resumeSave.do", method = RequestMethod.POST)
-	public String resumeSave(@SessionAttribute("userVO") UserVO userVO, CareerVO careerVO, EducationVO educationVO,
+	public String resumeSave(HttpSession session, CareerVO careerVO, EducationVO educationVO,
 			CertificateVO certificateVO, LanguageVO languageVO, String category) {
+		UserVO userVO = (UserVO) session.getAttribute("userVO");
+
+		if (userVO == null) {
+			return "redirect:http://localhost/third_prj/accounts/sign_in.do";
+		}
 		String id = userVO.getId();
 
 		switch (category) {
@@ -104,7 +115,12 @@ public class ResumeController {
 	}
 
 	@RequestMapping(value = "resume/resumeReset.do", method = RequestMethod.POST)
-	public String resumeReset(@SessionAttribute("userVO") UserVO userVO, String table) {
+	public String resumeReset(HttpSession session, String table) {
+		UserVO userVO = (UserVO) session.getAttribute("userVO");
+
+		if (userVO == null) {
+			return "redirect:http://localhost/third_prj/accounts/sign_in.do";
+		}
 		String id = userVO.getId();
 
 		switch (table) {

@@ -34,6 +34,7 @@
 						placeholder="수상/자격증에 관한 사항을 작성해주세요." name="description">${certificateVO.description}</textarea>
 				</div>
 				<input type="hidden" name="category" value="certificate">
+				<input type="hidden" name="id" value="${ userVO.getId() }">
 			</form>
 
 		</div>
@@ -47,6 +48,7 @@
 		</div>
 		<form id="remove_cert" action="http://localhost/third_prj/resume/resumeReset.do" method="post">
 			<input type="hidden" name="table" value="certificate">
+			<input type="hidden" name="id" value="${ userVO.getId() }">
 		</form>
 	</div>
 </div>

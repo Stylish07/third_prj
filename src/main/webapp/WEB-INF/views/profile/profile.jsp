@@ -124,7 +124,7 @@ function img_chg() {
 							<textarea class="form-control" rows="2" name="description" id="description"><c:out value="${ profileVO.description }"/></textarea>
 						</div>
 						
-						<%-- <input type="hidden" name="id" value="${ userVO.getId() }"> --%>
+						<input type="hidden" name="id" value="${ userVO.getId() }">
 						
 						<button type="button" class="btn btn-success" id="save">저장</button>
 					</form>

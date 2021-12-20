@@ -31,6 +31,7 @@
 						class="form-control" id="lang_score" placeholder="ex) 870" name="score" value="${languageVO.score}">
 				</div>
 				<input type="hidden" name="category" value="language">
+				<input type="hidden" name="id" value="${ userVO.getId() }">
 			</form>
 		</div>
 		<div class="row">
@@ -43,6 +44,7 @@
 		</div>
 		<form id="remove_lang" action="http://localhost/third_prj/resume/resumeReset.do" method="post">
 			<input type="hidden" name="table" value="language">
+			<input type="hidden" name="id" value="${ userVO.getId() }">
 		</form>
 	</div>
 </div>

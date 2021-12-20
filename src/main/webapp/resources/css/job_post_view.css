@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.job_wrap {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.job_head {
+	border-bottom: 1px solid;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.job_body {
+	margin-bottom: 100px;
+	margin-top: 100px;
+	margin-left: 150px;
+	margin-right: 150px;
+	
+	padding: 50px;
+	
+	background-color: #FFFFDE;
+}
